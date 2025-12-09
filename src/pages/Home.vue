@@ -22,16 +22,16 @@
           <small class="intro-label">— Introduction</small>
 
           <h2 class="title">
-            Product Designer and<br />
-            Developer, based in Montreux.
+            Développeur et étudiant<br />
+            en Ingénierie des Médias.
           </h2>
 
           <p class="lead">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-            laudantium, totam rem aperiam.
+            Je conçois et pilote des solutions digitales alliant développement, stratégie, communication et expérience utilisateur.
+            Avec une approche rigoureuse mêlant technique et créativité, je transforme des objectifs complexes en expériences impactantes, modernes et efficaces. 
           </p>
 
-          <a class="cta" href="#" @click.prevent>Mon Histoire →</a>
+          <router-link class="cta" to="/myhistory">Mon Parcours →</router-link>
         </div>
       </section>
     </section>
@@ -40,66 +40,60 @@
     <!-- .contact-section est full-bleed ; .contact-inner recentre le contenu -->
     <section class="contact-section" aria-labelledby="contact-heading">
       <div class="contact-inner">
-        <!-- two-column area: left = contact, right = quote + stats -->
         <div class="contact-grid">
+          <!-- gauche : cartes empilées -->
           <div class="contact-left">
-            <small class="contact-label">— Contact</small>
-            <h3 id="contact-heading" class="contact-title">Any Type Of Query<br>&amp; Discussion.</h3>
-            <p class="contact-desc">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-            </p>
+            <div class="service-card featured">
+              <div class="service-icon">▣</div>
+              <h4 class="service-title">Programmation</h4>
+              <div class="service-count">1 Projet</div>
+            </div>
 
-            <div class="contact-line">
-              <a class="contact-email" href="mailto:desgaliermichael@gmail.com">desgaliermichael@gmail.com</a>
-              <a class="contact-cta" href="#" @click.prevent>→</a>
+            <div class="service-card">
+              <div class="service-icon">✦</div>
+              <h4 class="service-title">ECommerce</h4>
+              <div class="service-count">1 Projet</div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">▣</div>
+              <h4 class="service-title">Design & UI / UX</h4>
+              <div class="service-count">3 Projets</div>
             </div>
           </div>
 
+          <!-- droite : titre + texte + contact info -->
           <div class="contact-right">
-            <blockquote class="quote">
-              You can't use up creativity, <br />
-              the more you use, more you have in your significant mind.
-            </blockquote>
-
-            <p class="quote-desc">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+            <h2 class="contact-title">Comment je vous aide ?</h2>
+            <p class="contact-desc">
+              Je vous accompagne sur l’ensemble du digital : de la conception technique à la stratégie, en passant par le design et l’expérience utilisateur.
+              Grâce à mes compétences en développement, marketing, communication et UX/UI, je transforme vos besoins en solutions concrètes, performantes et esthétiques.
+            </p>
+            <p class="contact-desc">
+              Mon objectif : créer des expériences digitales cohérentes, impactantes et centrées sur l’utilisateur, alliant créativité, design et rigueur technique.
             </p>
 
-            <div class="stats-row">
-              <div class="stat">
-                <div class="stat-number">14</div>
-                <div class="stat-label">Years of Experience.</div>
+            <!-- NOUVEAU : Contact info sur la droite -->
+            <aside class="contact-info" aria-label="Informations de contact">
+              <div class="contact-line contact-item">
+                <span class="contact-item-icon" aria-hidden="true">✉︎</span>
+                <a class="contact-email contact-value" href="mailto:desgaliermichael@gmail.com">desgaliermichael@gmail.com</a>
               </div>
 
-              <div class="stat">
-                <div class="stat-number">187</div>
-                <div class="stat-label">Satisfied Clients.</div>
+              <div class="contact-line contact-item">
+                <span class="contact-item-icon" aria-hidden="true">☎</span>
+                <a class="contact-value" href="tel:+41789121920">+41 78 912 19 20</a>
               </div>
-            </div>
+
+              <div class="contact-actions">
+                <a class="contact-cta-btn" href="mailto:desgaliermichael@gmail.com?subject=Demande%20de%20contact">Me contacter →</a>
+                <router-link class="contact-cta-link" to="/works">Voir mes projets</router-link>
+              </div>
+            </aside>
+            <!-- FIN contact-info -->
           </div>
         </div>
-
-        <!-- services / cards row (restreint au centre via .contact-inner) -->
-        <div class="services-grid">
-          <div class="service-card featured">
-            <div class="service-icon">□</div>
-            <h4 class="service-title">Product Designer.</h4>
-            <div class="service-count">124 Projects</div>
-          </div>
-
-          <div class="service-card">
-            <div class="service-icon">✦</div>
-            <h4 class="service-title">Branding Designer.</h4>
-            <div class="service-count">37 Projects</div>
-          </div>
-
-          <div class="service-card">
-            <div class="service-icon">▣</div>
-            <h4 class="service-title">Full Stack Developer.</h4>
-            <div class="service-count">62 Projects</div>
-          </div>
-        </div>
-      </div> <!-- .contact-inner -->
+      </div>
     </section>
   </main>
 </template>

@@ -2,9 +2,9 @@
   <main>
     <!-- HERO -->
     <section class="history-hero">
-      <h1 class="history-title">Mon Histoire</h1>
+      <h1 class="history-title">Mon Parcours</h1>
       <p class="history-intro">
-        Découvrez mon parcours professionnel et créatif, de mes débuts dans le design jusqu'à mes projets actuels en développement et design produit.
+        Découvrez mon parcours professionnel et créatif, de mes débuts dans la programmation jusqu'à mes projets actuels en Ingénierie des Médias.
       </p>
     </section>
 
@@ -26,30 +26,6 @@
         </div>
       </div>
     </section>
-
-    <!-- CONTACT / CALL TO ACTION -->
-    <section class="contact-section" aria-labelledby="contact-heading">
-      <div class="contact-inner">
-        <div class="contact-grid">
-          <div class="contact-left">
-            <small class="contact-label">— Contact</small>
-            <h3 id="contact-heading" class="contact-title">Discutons Ensemble</h3>
-            <p class="contact-desc">
-              Vous avez une question ou un projet ? N’hésitez pas à me contacter.
-            </p>
-            <div class="contact-line">
-              <a class="contact-email" href="mailto:desgaliermichael@gmail.com">desgaliermichael@gmail.com</a>
-              <a class="contact-cta" href="#">→</a>
-            </div>
-          </div>
-          <div class="contact-right">
-            <blockquote class="quote">
-              Chaque projet est une opportunité d’apprendre et de repousser les limites de mon design et développement.
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 </template>
 
@@ -59,10 +35,9 @@ export default {
   data() {
     return {
       timeline: [
-        { year: 2010, title: "Débuts dans le Design", description: "Premiers projets graphiques et découvertes de Photoshop et Illustrator." },
-        { year: 2014, title: "Projets Web", description: "Création de sites web pour des clients locaux et apprentissage du HTML/CSS/JS." },
-        { year: 2018, title: "Product Designer", description: "Travail en agence sur des applications et interfaces complexes." },
-        { year: 2022, title: "Full Stack Developer", description: "Combinaison du design et du développement pour offrir des solutions complètes." }
+        { year: 2016, title: "Apprentissage", description: "Apprentissage en Informatique à l'ETML." },
+        { year: 2020, title: " Ecole supérieur", description: "Ecole supérieur en Informatique de Gestion à l'ETML-ES." },
+        { year: 2022, title: "Haute Ecole", description: "Haute école en Ingénierie des Médias à l'HEIG-VD." }
       ]
     };
   }

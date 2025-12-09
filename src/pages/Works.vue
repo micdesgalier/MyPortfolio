@@ -2,51 +2,53 @@
 <template>
   <main class="works-page">
     <header class="works-header">
-      <h1 class="works-title">Selected Works</h1>
-      <p class="works-sub">Projets choisis — interface, branding & développement.</p>
+      <h1 class="works-title">Découvrez mon travail</h1>
+      <p class="works-sub">Parcourez mes projets selon le domaine.</p>
     </header>
 
     <!-- filtres / actions (optionnel) -->
     <div class="works-controls">
       <div class="filter-group">
-        <button class="filter active">All</button>
-        <button class="filter">UX / UI</button>
-        <button class="filter">Branding</button>
-        <button class="filter">Web</button>
+        <button class="filter active">Tous</button>
+        <button class="filter">Programmation</button>
+        <button class="filter">ECommerce</button>
+        <button class="filter">Design & UX / UI</button>
       </div>
     </div>
 
     <!-- grid des projets -->
     <section class="projects-grid">
-      <!-- exemple de carte projet - duplique/ajoute autant que nécessaire -->
-      <article class="project-card" v-for="(p, i) in projects" :key="i">
-        <div class="project-media" :style="{ backgroundImage: 'url(' + p.image + ')' }" aria-hidden="true"></div>
-        <div class="project-body">
-          <h3 class="project-title">{{ p.title }}</h3>
-          <p class="project-meta">{{ p.type }} · {{ p.year }}</p>
-        </div>
-      </article>
+      <router-link
+        v-for="(p, i) in projects"
+        :key="p.id"
+        :to="{ name: 'Project', params: { id: p.id } }"
+        class="project-card-link"
+        aria-label="'Voir ' + p.title"
+      >
+        <article class="project-card">
+          <div class="project-media" :style="{ backgroundImage: 'url(' + p.image + ')' }" aria-hidden="true"></div>
+          <div class="project-body">
+            <h3 class="project-title">{{ p.title }}</h3>
+            <p class="project-meta">{{ p.type }} · {{ p.year }}</p>
+            <p class="project-short" v-if="p.short">{{ p.short }}</p>
+          </div>
+        </article>
+      </router-link>
     </section>
   </main>
 </template>
 
 <script>
+import projectsList from "../data/projects.js";
+
 export default {
   name: "WorksPage",
   data() {
     return {
-      // jeux d'exemples — remplace les images par tes assets dans /public ou /src/assets
-      projects: [
-        { title: "Project Alpha", type: "Product Design", year: "2024", image: "/placeholder-1.jpg" },
-        { title: "Brand Refresh", type: "Branding", year: "2023", image: "/placeholder-2.jpg" },
-        { title: "E-commerce UI", type: "Web", year: "2024", image: "/placeholder-3.jpg" },
-        { title: "Analytics App", type: "Product Design", year: "2022", image: "/placeholder-4.jpg" },
-        { title: "Marketing Site", type: "Web", year: "2023", image: "/placeholder-5.jpg" },
-        { title: "Identity Pack", type: "Branding", year: "2024", image: "/placeholder-6.jpg" }
-      ]
-    }
+      projects: projectsList
+    };
   }
-}
+};
 </script>
 
 <style scoped>
@@ -99,6 +101,13 @@ export default {
   gap: 22px;
 }
 
+/* Link wrapper reset */
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 /* project card */
 .project-card{
   background: rgba(255,255,255,0.03);
@@ -127,6 +136,7 @@ export default {
 }
 .project-title{margin:0;font-weight:700}
 .project-meta{margin:0;color:var(--muted);font-size:13px}
+.project-short{margin:6px 0 0;color:var(--muted);font-size:13px}
 
 /* responsive */
 @media (max-width: 1100px){

@@ -64,7 +64,7 @@ body{
   box-sizing: border-box;
   max-width: 360px;
   display: flex;
-  gap: 50px;
+  gap: 40px;
   align-items: center;
 }
 
@@ -77,17 +77,17 @@ body{
   font-weight: 500;
 }
 
-.nav a:first-child::after{
-  content:'';
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:-10px;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--accent);
-  box-shadow:0 0 0 4px rgba(242,201,76,0.05);
+.nav a.router-link-active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(242,201,76,0.05);
 }
 
 /* ---------- HERO ---------- */
@@ -204,17 +204,16 @@ body{
 /* grid two-column pour la zone supérieure */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr var(--right-col);
+  grid-template-columns: 1fr 2fr; /* gauche : 1/3, droite : 2/3 par exemple */
   gap: 40px;
   align-items: start;
-  margin-bottom: 48px;
-  position: relative;
-  z-index: 2; /* contenu au-dessus */
 }
 
 /* Left contact block */
 .contact-left {
-  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* espace entre les cartes */
 }
 
 .contact-label {
@@ -262,7 +261,7 @@ body{
 
 /* Right quote block */
 .contact-right {
-  padding-left: var(--right-pad);
+  padding-left: 130px;
   box-sizing: border-box;
 }
 
@@ -323,22 +322,23 @@ body{
 /* Card base */
 .service-card {
   background: rgba(255,255,255,0.03);
-  padding: 36px 28px;
+  padding: 24px 20px;   /* réduit la hauteur verticale */
   border-radius: 6px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.45);
-  transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
-  min-height: 170px;
+  gap: 12px;            /* réduit l'espacement interne */
+  min-height: auto;     /* enlève la hauteur minimale précédente */
+  width: 550px;         /* limite la largeur pour qu'elles ne soient pas trop grandes */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35); /* léger shadow */
+  transition: transform 0.28s cubic-bezier(.2,.9,.3,1), box-shadow 0.28s;
 }
 
 /* featured card on the left (accent) */
 .service-card.featured {
   background: linear-gradient(180deg, var(--accent), #f0b33a);
   color: #1b1b1b;
-  transform: translateY(-18px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+  transform: translateY(-10px); /* léger décalage vers le haut */
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
 }
 
 /* icons / title / count */
@@ -361,8 +361,90 @@ body{
 
 /* hover effect */
 .service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 50px rgba(0,0,0,0.55);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+/* ---------- NOUVEAU : styles pour contact-info (droite) ---------- */
+.contact-info {
+  margin-top: 20px;
+  border-radius: 8px;
+  padding: 18px;
+  background: rgba(255,255,255,0.02);
+  max-width: 420px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.contact-info-title {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.contact-item {
+  margin-top: 8px;
+  padding: 8px 10px;
+  align-items: center;
+  border-radius: 8px;
+  transition: background 0.18s, transform 0.12s;
+}
+
+.contact-item:hover {
+  background: rgba(255,255,255,0.02);
+  transform: translateY(-2px);
+}
+
+.contact-item-icon {
+  width: 28px;
+  height: 28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  color: var(--muted);
+  margin-right:8px;
+}
+
+.contact-value {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-value:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* actions (boutons) */
+.contact-actions {
+  display:flex;
+  gap:12px;
+  margin-top: 14px;
+  align-items:center;
+}
+
+.contact-cta-btn {
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(242,201,76,0.98), rgba(240,179,58,0.98));
+  color:#111;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.contact-cta-link {
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:10px;
+  background:transparent;
+  color:var(--accent);
+  border:1px solid rgba(255,255,255,0.06);
+  text-decoration:none;
+  font-weight:700;
 }
 
 /* responsive: stack contact + services on small screens */
@@ -380,6 +462,21 @@ body{
   }
   .service-card.featured {
     transform: translateY(0);
+  }
+
+  /* contact-info full width on small screens */
+  .contact-info {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-cta-link {
+    text-align: center;
   }
 }
 
